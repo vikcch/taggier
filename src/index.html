@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <script src="./scripts/main.js" type="module"></script>
+    <link rel="stylesheet" href="./styles/main.css">
+
+</head>
+
+<body>
+
+    <header class="divorced">
+
+        <div>
+            <h1>Taggier</h1>
+            <p>JavaScript object to easing tag and hashtag inputs</p>
+        </div>
+
+        <div class="center">
+            <a class="button button--blue" href="https://github.com/vikcch/taggier">
+                GitHub
+            </a>
+        </div>
+
+    </header>
+
+    <main>
+
+        <section class="badge">
+
+            <h2>Try it out</h2>
+
+            <p>Use comma <kbd>,</kbd> as the separator</p>
+
+            <div id="taggier"></div>
+
+            <p><kbd>BACKSPACE</kbd> removes a tag if there are no characters to remove</p>
+
+        </section>
+
+        <section class="badge">
+
+            <h2>Retrieve all tags</h2>
+
+            <button id="btn-list-tags" class="button button--blue">List tags</button>
+
+            <ul id="ul-tags"></ul>
+
+        </section>
+
+        <section class="badge">
+
+            <h3 class="text-center">NPM INSTALL</h3>
+            <div class="inline-code bigger-text">npm install taggier</div>
+
+            <div class="badge">
+
+                <p>HTML:</p>
+                <div class="code tm-m">
+                    <div><span style="color: #808080;">&lt;</span><span style="color: #569cd6;">div</span><span
+                            style="color: #d4d4d4;">&nbsp;</span><span style="color: #9cdcfe;">id</span><span
+                            style="color: #d4d4d4;">=</span><span style="color: #ce9178;">"example"</span><span
+                            style="color: #808080;">&gt;&lt;/</span><span style="color: #569cd6;">div</span><span
+                            style="color: #808080;">&gt;</span></div>
+                </div>
+
+            </div>
+
+            <div class="badge">
+
+                <p>JavaScript:</p>
+                <div class="code tm-m">
+                    <div><span style="color: #c586c0;">import</span><span style="color: #d4d4d4;">&nbsp;</span><span
+                            style="color: #9cdcfe;">Taggier</span><span style="color: #d4d4d4;">&nbsp;</span><span
+                            style="color: #c586c0;">from</span><span style="color: #d4d4d4;">&nbsp;</span><span
+                            style="color: #ce9178;">'./taggier.js'</span><span style="color: #d4d4d4;">;</span>
+                    </div><br>
+                    <div><span style="color: #569cd6;">const</span><span style="color: #d4d4d4;">&nbsp;</span><span
+                            style="color: #9cdcfe;">taggier</span><span
+                            style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #569cd6;">new</span><span
+                            style="color: #d4d4d4;">&nbsp;</span><span style="color: #4ec9b0;">Taggier</span><span
+                            style="color: #d4d4d4;">(</span><span style="color: #ce9178;">'example'</span><span
+                            style="color: #d4d4d4;">);</span></div>
+                </div>
+            </div>
+
+            <h3 class="text-center">Styles</h3>
+
+            <div class="badge">
+                <p>CSS:</p>
+                <div class="code tm-m">
+                    <div><span style="color: #d7ba7d;">.tag</span><span style="color: #d4d4d4;">&nbsp;{</span></div>
+                    <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                            style="color: #9cdcfe;">background-color</span><span
+                            style="color: #d4d4d4;">:&nbsp;</span><span style="color: #ce9178;">#ccc</span><span
+                            style="color: #d4d4d4;">;</span></div>
+                    <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                            style="color: #9cdcfe;">padding</span><span style="color: #d4d4d4;">:&nbsp;</span><span
+                            style="color: #b5cea8;">8px</span><span style="color: #d4d4d4;">&nbsp;</span><span
+                            style="color: #b5cea8;">16px</span><span style="color: #d4d4d4;">;</span></div>
+                    <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                            style="color: #9cdcfe;">cursor</span><span style="color: #d4d4d4;">:&nbsp;</span><span
+                            style="color: #ce9178;">pointer</span><span style="color: #d4d4d4;">;</span></div>
+                    <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                            style="color: #9cdcfe;">border-radius</span><span
+                            style="color: #d4d4d4;">:&nbsp;</span><span style="color: #b5cea8;">8px</span><span
+                            style="color: #d4d4d4;">;</span></div>
+                    <div><span style="color: #d4d4d4;">}</span></div><br>
+                    <div><span style="color: #d7ba7d;">.tag:hover</span><span style="color: #d4d4d4;">&nbsp;{</span>
+                    </div>
+                    <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                            style="color: #9cdcfe;">filter</span><span style="color: #d4d4d4;">:&nbsp;</span><span
+                            style="color: #dcdcaa;">brightness</span><span style="color: #d4d4d4;">(</span><span
+                            style="color: #b5cea8;">95%</span><span style="color: #d4d4d4;">);</span></div>
+                    <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                            style="color: #9cdcfe;">transition</span><span style="color: #d4d4d4;">:&nbsp;</span><span
+                            style="color: #ce9178;">all</span><span style="color: #d4d4d4;">&nbsp;</span><span
+                            style="color: #b5cea8;">.1s</span><span style="color: #d4d4d4;">&nbsp;</span><span
+                            style="color: #ce9178;">ease</span><span style="color: #d4d4d4;">;</span></div>
+                    <div><span style="color: #d4d4d4;">}</span></div><br>
+                    <div><span style="color: #d7ba7d;">.tag::after</span><span style="color: #d4d4d4;">&nbsp;{</span>
+                    </div>
+                    <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                            style="color: #9cdcfe;">content</span><span style="color: #d4d4d4;">:&nbsp;</span><span
+                            style="color: #ce9178;">'&nbsp;</span><span style="color: #d7ba7d;">\00d7</span><span
+                            style="color: #ce9178;">'</span><span style="color: #d4d4d4;">;</span></div>
+                    <div><span style="color: #d4d4d4;">}</span></div><br>
+                    <div><span style="color: #d7ba7d;">.tag:hover::after</span><span
+                            style="color: #d4d4d4;">&nbsp;{</span></div>
+                    <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                            style="color: #9cdcfe;">color</span><span style="color: #d4d4d4;">:&nbsp;</span><span
+                            style="color: #ce9178;">red</span><span style="color: #d4d4d4;">;</span></div>
+                    <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="badge">
+
+            <h2>Options</h2>
+
+            <p>Object: Second parameter</p>
+
+            <div class="code">
+                <div><span style="color: #569cd6;">const</span><span style="color: #d4d4d4;">&nbsp;</span><span
+                        style="color: #9cdcfe;">myOptions</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;{</span>
+                </div>
+                <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">gap:</span><span style="color: #d4d4d4;">&nbsp;</span><span
+                        style="color: #b5cea8;">8</span><span style="color: #d4d4d4;">,</span></div>
+                <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">hashtag:</span><span style="color: #d4d4d4;">&nbsp;</span><span
+                        style="color: #569cd6;">true</span></div>
+                <div><span style="color: #d4d4d4;">};</span></div>
+                <div><span style="color: #569cd6;">const</span><span style="color: #d4d4d4;">&nbsp;</span><span
+                        style="color: #9cdcfe;">taggier</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span
+                        style="color: #569cd6;">new</span><span style="color: #d4d4d4;">&nbsp;</span><span
+                        style="color: #4ec9b0;">Taggier</span><span style="color: #d4d4d4;">(</span><span
+                        style="color: #ce9178;">'example'</span><span style="color: #d4d4d4;">,&nbsp;</span><span
+                        style="color: #9cdcfe;">myOptions</span><span style="color: #d4d4d4;">);</span></div>
+            </div>
+
+            <p><span class="inline-code">gap</span> <i class="code-type">Number</i class="code-type"> - Set the gap
+                between each tag. Default: <span class="inline-code">16</span></p>
+            <p><span class="inline-code">forbiddenPattern</span> <i class="code-type">Regex</i> | <i>Boolean</i> -
+                Forbidden characters. (Set to <span class="inline-code">false</span> to have none). Default: <span
+                    class="inline-code">/[^\w]+/g</span>
+            </p>
+            <p><span class="inline-code">hashtag</span> <i class="code-type">Boolean</i> - Is hashtag. Default: <span
+                    class="inline-code">false</span></p>
+            <p>
+                <span class="inline-code">border</span> <i class="code-type">Boolean</i> - If no css for the element is
+                specified a <span class="inline-code">1px solid gray</span> will be assign. Default:
+                <span class="inline-code">true</span>
+            </p>
+
+        </section>
+
+        <section class="badge">
+
+            <h2>Getters</h2>
+
+            <p><span class="inline-code">tags</span> <i class="code-type">Array</i> - Returns a new Array of strings
+                beeing each element a tag text.
+
+            </p>
+
+        </section>
+
+        <section class="badge">
+
+            <h2>Methods</h2>
+
+            <p><span class="inline-code">getTags()</span> <i class="code-type">Array</i> - Returns a new Array of
+                strings beeing each element a tag text.
+
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer class="text-center">
+        <p class="tm-l">Powered by VikSoft</p>
+        <p><a href="https://github.com/vikcch/taggier">GitHub repository</a></p>
+        <p class="very-small-text">Taggier is Open Source Software licensed under the <a
+                href="https://opensource.org/licenses/MIT">MIT.</a>
+        </p>
+    </footer>
+
+</body>
+
+</html>
