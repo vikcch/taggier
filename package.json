@@ -4,7 +4,8 @@
   "description": "JavaScript object to easing tag and hashtag inputs",
   "main": "./lib/index.js",
   "scripts": {
-    "build": "babel src/scripts/taggier.js --out-file lib/index.js"
+    "build": "babel src/scripts/taggier.js --out-file lib/index.js",
+    "build-injection": "babel src/scripts/taggier.js --out-file injection/taggier.js"
   },
   "repository": {
     "type": "git",
@@ -38,6 +39,7 @@
     "@babel/core": "^7.12.3",
     "@babel/node": "^7.12.6",
     "@babel/preset-env": "^7.12.1",
+    "babel-plugin-remove-import-export": "^1.1.1",
     "install": "^0.13.0"
   }
 }

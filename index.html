@@ -17,7 +17,7 @@
 
         <div>
             <h1>Taggier</h1>
-            <p>JavaScript object to easing tag and hashtag inputs</p>
+            <p class="tm-m">JavaScript object to easing tag and hashtag inputs</p>
         </div>
 
         <div class="center">
@@ -77,8 +77,51 @@
                     <div><span style="color: #c586c0;">import</span><span style="color: #d4d4d4;">&nbsp;</span><span
                             style="color: #9cdcfe;">Taggier</span><span style="color: #d4d4d4;">&nbsp;</span><span
                             style="color: #c586c0;">from</span><span style="color: #d4d4d4;">&nbsp;</span><span
-                            style="color: #ce9178;">'./taggier.js'</span><span style="color: #d4d4d4;">;</span>
+                            style="color: #ce9178;">'taggier'</span><span style="color: #d4d4d4;">;</span>
                     </div><br>
+                    <div><span style="color: #569cd6;">const</span><span style="color: #d4d4d4;">&nbsp;</span><span
+                            style="color: #9cdcfe;">taggier</span><span
+                            style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #569cd6;">new</span><span
+                            style="color: #d4d4d4;">&nbsp;</span><span style="color: #4ec9b0;">Taggier</span><span
+                            style="color: #d4d4d4;">(</span><span style="color: #ce9178;">'example'</span><span
+                            style="color: #d4d4d4;">);</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="badge">
+
+            <h3 class="text-center">ES6 MODULES</h3>
+
+            <p>You need to include <span class="inline-code">type="module"</span> in the <span
+                    class="inline-code">script</span> element, to declare the script as a module. <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules">Read more</a> </p>
+
+            <div class="badge">
+
+                <p>HTML:</p>
+                <div class="code tm-m">
+                    <div><span style="color: #808080;">&lt;</span><span style="color: #569cd6;">div</span><span
+                            style="color: #d4d4d4;">&nbsp;</span><span style="color: #9cdcfe;">id</span><span
+                            style="color: #d4d4d4;">=</span><span style="color: #ce9178;">"example"</span><span
+                            style="color: #808080;">&gt;&lt;/</span><span style="color: #569cd6;">div</span><span
+                            style="color: #808080;">&gt;</span></div>
+                </div>
+
+            </div>
+
+            <div class="badge">
+
+                <p>JavaScript:</p>
+
+                <div class="code tm-m">
+                    <div><span style="color: #c586c0;">import</span><span style="color: #d4d4d4;">&nbsp;</span><span
+                            style="color: #9cdcfe;">Taggier</span><span style="color: #d4d4d4;">&nbsp;</span><span
+                            style="color: #c586c0;">from</span><span style="color: #d4d4d4;">&nbsp;</span><span
+                            style="color: #ce9178;">'https://cdn.jsdelivr.net/gh/vikcch/taggier@0.9.1/src/scripts/taggier.js'</span><span
+                            style="color: #d4d4d4;">;</span></div><br>
                     <div><span style="color: #569cd6;">const</span><span style="color: #d4d4d4;">&nbsp;</span><span
                             style="color: #9cdcfe;">taggier</span><span
                             style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #569cd6;">new</span><span
@@ -86,8 +129,54 @@
                             style="color: #d4d4d4;">(</span><span style="color: #ce9178;">'example'</span><span
                             style="color: #d4d4d4;">);</span></div>
                 </div>
+
             </div>
 
+        </section>
+
+        <section class="badge" style="opacity: .5;">
+
+            <h3 class="text-center">SCRIPT INJECTION</h3>
+
+            <div class="badge">
+
+                <p>HTML:</p>
+
+                <div class="code tm-m">
+                    <div><span style="color: #808080;">&lt;</span><span style="color: #569cd6;">script</span><span
+                            style="color: #d4d4d4;">&nbsp;</span><span style="color: #9cdcfe;">src</span><span
+                            style="color: #d4d4d4;">=</span><span
+                            style="color: #ce9178;">"https://cdn.jsdelivr.net/gh/vikcch/taggier@0.9.1/injection/taggier.js"</span><span
+                            style="color: #808080;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span
+                            style="color: #808080;">&gt;</span></div><br>
+                    <div><span style="color: #808080;">&lt;</span><span style="color: #569cd6;">div</span><span
+                            style="color: #d4d4d4;">&nbsp;</span><span style="color: #9cdcfe;">id</span><span
+                            style="color: #d4d4d4;">=</span><span style="color: #ce9178;">"example"</span><span
+                            style="color: #808080;">&gt;&lt;/</span><span style="color: #569cd6;">div</span><span
+                            style="color: #808080;">&gt;</span></div>
+                </div>
+            </div>
+
+            <div class="badge">
+
+                <p>JavaScript:</p>
+
+                <div class="code tm-m">
+
+                    <div><span style="color: #569cd6;">const</span><span style="color: #d4d4d4;">&nbsp;</span><span
+                            style="color: #9cdcfe;">taggier</span><span
+                            style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #569cd6;">new</span><span
+                            style="color: #d4d4d4;">&nbsp;</span><span style="color: #4ec9b0;">Taggier</span><span
+                            style="color: #d4d4d4;">(</span><span style="color: #ce9178;">'example'</span><span
+                            style="color: #d4d4d4;">);</span></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="badge">
             <h3 class="text-center">Styles</h3>
 
             <div class="badge">
@@ -187,7 +276,6 @@
 
             <p><span class="inline-code">tags</span> <i class="code-type">Array</i> - Returns a new Array of strings
                 beeing each element a tag text.
-
             </p>
 
         </section>
@@ -198,7 +286,6 @@
 
             <p><span class="inline-code">getTags()</span> <i class="code-type">Array</i> - Returns a new Array of
                 strings beeing each element a tag text.
-
             </p>
 
         </section>

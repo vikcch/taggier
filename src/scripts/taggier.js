@@ -1,4 +1,4 @@
-export default class Taggier {
+const taggier = class Taggier {
 
     /**
      * 
@@ -118,3 +118,6 @@ export default class Taggier {
         return this.tags;
     }
 }
+
+
+export default taggier;
