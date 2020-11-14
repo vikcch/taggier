@@ -1,15 +1,16 @@
-const taggier = class Taggier {
+const Taggier = class Taggier {
 
     /**
      * 
-     * @param {string} divId 
-     * @param {{gap: number, forbiddenPattern: false | RegExp, hashtag: boolean, border: boolean }} options default values:  
+     * @param {string | HTMLDivElement} div Div `id` or the div itself
+     * @param {{gap: number, forbiddenPattern: false | RegExp, hashtag: boolean, border: boolean, focus: boolean }} options default values:  
      * * gap: `16`;  
-     * * forbiddenPattern: `/[^\w]+/g`; (set to `false` to have none)  
+     * * forbiddenPattern: `/[^\w]+/g`; (set to `false` to have none);  
      * * hashtag: `false`;
-     * * border: `true`  
+     * * border: `true`;  
+     * * focus: `true`;  
      */
-    constructor(divId, options = {}) {
+    constructor(div, options = {}) {
 
         const gap = options.gap || 16;
         const pattern = options.forbiddenPattern === false
@@ -17,11 +18,24 @@ const taggier = class Taggier {
             : options.pattern || /[^\w]+/g;
         const hashtag = options.hashtag;
         const border = options.border ?? true;
+        const focus = options.focus ?? true;
 
-        this.container = document.querySelector(`#${divId}`);
+        const errorMessagePrefix = 'The first paremeter (div) of the object Taggier';
 
-        if (this.container === null) {
-            throw Error('The first paremeter (DivId) of the object Taggier was not found');
+        if (typeof div === 'string' || div instanceof String) {
+
+            this.container = document.querySelector(`#${div}`);
+
+            const errorMessage = `${errorMessagePrefix} was not found`;
+            if (this.container === null) throw Error(errorMessage);
+        }
+
+        if (div instanceof HTMLDivElement) this.container = div;
+
+        if (this.container === undefined) {
+
+            const errorMessage = `${errorMessagePrefix} is not a HTMLDivElement`;
+            throw Error(errorMessage);
         }
 
         if (border) {
@@ -55,6 +69,21 @@ const taggier = class Taggier {
         this.input.style.flex = 1;
         this.input.style.padding = '8px';
         this.container.appendChild(this.input);
+
+        this.input.addEventListener('focus', (e) => {
+
+            e.currentTarget.style.outline = 'none';
+
+            if (focus) this.container.style.outline = 'auto';
+        });
+
+        if (focus) {
+
+            this.input.addEventListener('focusout', (e) => {
+
+                this.container.style.outline = 'none';
+            });
+        }
 
         this.input.addEventListener('input', (e) => {
 
@@ -117,7 +146,7 @@ const taggier = class Taggier {
 
         return this.tags;
     }
-}
+};
 
 
-export default taggier;
+export default Taggier;

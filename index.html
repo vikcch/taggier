@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Taggier</title>
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <script src="./src/scripts/main.js" type="module"></script>
     <link rel="stylesheet" href="./src/styles/main.css">
@@ -231,9 +231,29 @@
 
         <section class="badge">
 
+            <h2>Syntax</h2>
+
+            <p><span class="inline-code">new Taggier(divId|div[, options]);</span></p>
+
+        </section>
+
+        <section class="badge">
+
+            <h2>Parameters</h2>
+
+            <p> <span class="inline-code">divId</span> <i class="code-type">String</i> - The id of the div Element</p>
+
+            <p> <span class="inline-code">div</span> <i class="code-type">HTMLDivElement</i> - The div Element</p>
+
+            <p><span class="inline-code">options</span> <i class="code-type">Object</i> - Optional</p>
+
+        </section>
+
+        <section class="badge">
+
             <h2>Options</h2>
 
-            <p>Object: Second parameter</p>
+            <p>Object: Second parameter - Optional </p>
 
             <div class="code">
                 <div><span style="color: #569cd6;">const</span><span style="color: #d4d4d4;">&nbsp;</span><span
@@ -267,6 +287,9 @@
                 specified a <span class="inline-code">1px solid gray</span> will be assign. Default:
                 <span class="inline-code">true</span>
             </p>
+
+            <p><span class="inline-code">focus</span> <i class="code-type">Boolean</i> - Has outline. Default: <span
+                class="inline-code">true</span></p>
 
         </section>
 

@@ -50,9 +50,21 @@ CSS:
 }
 ```
 
-## Options
+## Syntax
 
-Object: Second parameter
+`new Taggier(divId|div[, options]);`
+
+## Parameters
+
+`divId` _String_ - The id of the div Element
+
+`div` _HTMLDivElement_ - The div Element
+
+`options` _Object_ - Optional
+
+### Options
+
+Object: Second parameter - Optional
 
 ```js
 const myOptions = {
@@ -69,6 +81,8 @@ const taggier = new Taggier('example', myOptions);
 `hashtag` _Boolean_ - Is hashtag. Default: `false`
 
 `border` _Boolean_ - If no css for the element is specified a `1px solid gray` will be assign. Default: `true`
+
+`focus` _Boolean_ - Has outline. Default: `true`
 
 ## Getters
 
