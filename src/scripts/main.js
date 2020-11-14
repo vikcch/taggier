@@ -16,3 +16,31 @@ listTagsButton.addEventListener('click', () => {
         tagsUl.appendChild(li);
     });
 });
+
+
+const xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://api.github.com/repos/vikcch/taggier/releases/latest', true);
+
+xhr.onload = function () {
+
+    if (xhr.status === 200) {
+
+        try {
+
+            const response = JSON.parse(xhr.responseText);
+            const tagName = response.tag_name;
+
+            const els = Array.from(document.querySelectorAll('.latest-version'));
+            els.forEach(el => el.textContent = tagName.replace('v', '').trim());
+
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    if (xhr.status === 404) { }
+};
+
+xhr.onerror = function () { };
+
+xhr.send();
