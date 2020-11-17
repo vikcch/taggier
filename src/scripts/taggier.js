@@ -1,7 +1,7 @@
 const Taggier = class Taggier {
 
     /**
-     * 
+     * @constructor
      * @param {string | HTMLDivElement} div Div `id` or the div itself
      * @param {{gap: number, forbiddenPattern: false | RegExp, hashtag: boolean, border: boolean, focus: boolean }} options default values:  
      * * gap: `16`;  
@@ -19,6 +19,10 @@ const Taggier = class Taggier {
         const hashtag = options.hashtag;
         const border = options.border ?? true;
         const focus = options.focus ?? true;
+
+        this.fixedOptions = {
+            gap, pattern, hashtag, border, focus
+        };
 
         const errorMessagePrefix = 'The first paremeter (div) of the object Taggier';
 
@@ -93,25 +97,7 @@ const Taggier = class Taggier {
 
             const createTag = e.data === ',' && value.trim();
 
-            if (createTag) {
-
-                const prefix = hashtag ? '#' : '';
-                const tagText = `${prefix}${this.input.value.trim()}`;
-                this.input.value = '';
-
-                const duplicate = this.getTags().find(x => {
-
-                    return x.toLowerCase() === tagText.toLowerCase();
-                });
-
-                if (duplicate) return;
-
-                const span = document.createElement('span');
-                span.innerHTML = tagText;
-                span.classList.add('tag');
-                span.style.margin = `${gap / 2}px`;
-                this.container.insertBefore(span, this.input);
-            }
+            if (createTag) taggierCreateTag.call(this, this.input.value);
         });
 
         this.input.addEventListener('keydown', (e) => {
@@ -130,13 +116,20 @@ const Taggier = class Taggier {
     }
 
     /**
-     * @returns {Array} Array of strings
+     * @type {Array} Array of strings
      */
     get tags() {
 
         const spans = this.container.querySelectorAll('span');
 
         return Array.from(spans).map(x => x.textContent);
+    }
+
+    set tags(values) {
+
+        this.removeAll();
+
+        taggierAddTags.call(this, values);
     }
 
     /**
@@ -146,7 +139,95 @@ const Taggier = class Taggier {
 
         return this.tags;
     }
+
+    /**
+     * @param {Array} values Array of strings
+     */
+    setTags(values) {
+
+        this.tags = values;
+    }
+
+    /**
+     * @param {Array} values Array of strings
+     */
+    addTags(values) {
+
+        taggierAddTags.call(this, values);
+    }
+
+    /**
+     * Remove all tags
+     */
+    removeAll() {
+
+        const spans = this.container.querySelectorAll('span');
+
+        Array.from(spans).forEach(x => this.container.removeChild(x));
+    }
+
+    /**
+     * @returns {boolean} Has pending text in the element
+     */
+    hasPendingText() {
+
+        return !!this.input.value.trim();
+    }
+
+    /**
+     * @returns {string} The pending text in the element
+     */
+    pendingText() {
+
+        return this.input.value;
+    }
+
+    /**
+     * Makes a Tag from pending text in the element
+     */
+    makeTagFromPendingText() {
+
+        taggierCreateTag.call(this, this.input.value);
+    }
+
 };
 
+const taggierAddTags = function (values) {
+
+    if (!Array.isArray(values)) throw Error('Must be an Array');
+
+    values.forEach(x => {
+
+        const errorMessage = 'The Array must contain strings';
+        if (typeof x !== 'string') throw Error(errorMessage);
+
+        const fixed = x.replace(this.fixedOptions.pattern, '');
+        taggierCreateTag.call(this, fixed);
+    });
+};
+
+const taggierCreateTag = function (value) {
+
+    if (value.trim() === '') return;
+
+    const { hashtag, gap } = this.fixedOptions;
+
+    const prefix = hashtag ? '#' : '';
+    const tagText = `${prefix}${value.trim()}`;
+    this.input.value = '';
+
+    const duplicate = this.getTags().find(x => {
+
+        return x.toLowerCase() === tagText.toLowerCase();
+    });
+
+    if (duplicate) return;
+
+    const span = document.createElement('span');
+    span.innerHTML = tagText;
+    span.classList.add('tag');
+    span.style.margin = `${gap / 2}px`;
+    this.container.insertBefore(span, this.input);
+};
 
 export default Taggier;

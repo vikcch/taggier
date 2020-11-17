@@ -120,7 +120,8 @@
                     <div><span style="color: #c586c0;">import</span><span style="color: #d4d4d4;">&nbsp;</span><span
                             style="color: #9cdcfe;">Taggier</span><span style="color: #d4d4d4;">&nbsp;</span><span
                             style="color: #c586c0;">from</span><span style="color: #d4d4d4;">&nbsp;</span><span
-                            style="color: #ce9178;">'https://cdn.jsdelivr.net/gh/vikcch/taggier@<span class="latest-version">x.x.x</span>/src/scripts/taggier.js'</span><span
+                            style="color: #ce9178;">'https://cdn.jsdelivr.net/gh/vikcch/taggier@<span
+                                class="latest-version">x.x.x</span>/src/scripts/taggier.js'</span><span
                             style="color: #d4d4d4;">;</span></div><br>
                     <div><span style="color: #569cd6;">const</span><span style="color: #d4d4d4;">&nbsp;</span><span
                             style="color: #9cdcfe;">taggier</span><span
@@ -146,7 +147,8 @@
                     <div><span style="color: #808080;">&lt;</span><span style="color: #569cd6;">script</span><span
                             style="color: #d4d4d4;">&nbsp;</span><span style="color: #9cdcfe;">src</span><span
                             style="color: #d4d4d4;">=</span><span
-                            style="color: #ce9178;">"https://cdn.jsdelivr.net/gh/vikcch/taggier@<span class="latest-version">x.x.x</span>/injection/taggier.js"</span><span
+                            style="color: #ce9178;">"https://cdn.jsdelivr.net/gh/vikcch/taggier@<span
+                                class="latest-version">x.x.x</span>/injection/taggier.js"</span><span
                             style="color: #808080;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span
                             style="color: #808080;">&gt;</span></div><br>
                     <div><span style="color: #808080;">&lt;</span><span style="color: #569cd6;">div</span><span
@@ -275,7 +277,7 @@
             </div>
 
             <p><span class="inline-code">gap</span> <i class="code-type">Number</i class="code-type"> - Set the gap
-                between each tag. Default: <span class="inline-code">16</span></p>
+                in pixels between each tag. Default: <span class="inline-code">16</span></p>
             <p><span class="inline-code">forbiddenPattern</span> <i class="code-type">Regex</i> | <i>Boolean</i> -
                 Forbidden characters. (Set to <span class="inline-code">false</span> to have none). Default: <span
                     class="inline-code">/[^\w]+/g</span>
@@ -289,16 +291,16 @@
             </p>
 
             <p><span class="inline-code">focus</span> <i class="code-type">Boolean</i> - Has outline. Default: <span
-                class="inline-code">true</span></p>
+                    class="inline-code">true</span></p>
 
         </section>
 
         <section class="badge">
 
-            <h2>Getters</h2>
+            <h2>Accessors</h2>
 
-            <p><span class="inline-code">tags</span> <i class="code-type">Array</i> - Returns a new Array of strings
-                beeing each element a tag text.
+            <p><span class="inline-code">tags</span> <i class="code-type">Array</i> - Array of strings beeing each
+                element a tag text.
             </p>
 
         </section>
@@ -307,8 +309,31 @@
 
             <h2>Methods</h2>
 
-            <p><span class="inline-code">getTags()</span> <i class="code-type">Array</i> - Returns a new Array of
+            <p><span class="inline-code">getTags()</span> <i class="code-type">: Array</i> - Returns a new Array of
                 strings beeing each element a tag text.
+            </p>
+
+            <p><span class="inline-code">setTags(values)</span> <i class="code-type">(values : Array) : void</i> - Sets
+                tags beeing each element a tag text.
+            </p>
+
+            <p><span class="inline-code">addTags(values)</span> <i class="code-type">(values : Array) : void</i> - Add
+                tags beeing each element a tag text.
+            </p>
+
+            <p><span class="inline-code">removeAll()</span> <i class="code-type">: void</i> - Remove all tags.
+            </p>
+
+            <p><span class="inline-code">hasPendingText()</span> <i class="code-type">: Boolean</i> - Returns <span
+                    class="inline-code">true</span> if there is any text not tagged.
+            </p>
+
+            <p><span class="inline-code">pendingText()</span> <i class="code-type">: String</i> - Returns the pending text
+                in the element.
+            </p>
+
+            <p><span class="inline-code">makeTagFromPendingText()</span> <i class="code-type">: void</i> - Makes a Tag
+                from pending text in the element.
             </p>
 
         </section>

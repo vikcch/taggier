@@ -74,7 +74,7 @@ const myOptions = {
 const taggier = new Taggier('example', myOptions);
 ```
 
-`gap` _Number_ - Set the gap between each tag. Default: `16`
+`gap` _Number_ - Set the gap in pixels between each tag. Default: `16`
 
 `forbiddenPattern` _Regex | Boolean_ - Forbidden characters. (Set to `false` to have none) Default: `/[^\w]+/g` (Alphanumeric)
 
@@ -84,10 +84,22 @@ const taggier = new Taggier('example', myOptions);
 
 `focus` _Boolean_ - Has outline. Default: `true`
 
-## Getters
+## Accessors
 
-`tags` _Array_ - Returns a new Array of strings beeing each element a tag text.
+`tags` _Array_ - Array of strings beeing each element a tag text.
 
 ## Methods
 
 `getTags()` : _Array_ - Returns a new Array of strings beeing each element a tag text.  
+
+`setTags(values)` (_values : Array_) : _void_ - Sets tags beeing each element a tag text.
+
+`addTags(values)` (_values : Array_) : _void_ - Add tags beeing each element a tag text.
+
+`removeAll()` : _void_ - Remove all tags.
+
+`hasPendingText()` : _Boolean_ - Returns `true` if there is any text not tagged.
+
+`pendingText()` : _String_ - Returns the pending text in the element.
+
+`makeTagFromPendingText()` : _void_ - Makes a Tag from pending text in the element.
